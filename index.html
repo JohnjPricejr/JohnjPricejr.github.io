@@ -4,20 +4,23 @@
         <title>John's website</title>
         <style>
             body {
-                background: rgb(125, 198, 205);
-                color: rgb(45, 45, 45);
+                background: rgb(18, 185, 68);
+                color: rgb(155, 23, 23);
                 padding: 10px;
                 font-family: arial;
             }
             #all-contents {
               max-width: 800px;
                 margin: auto;
+            
             }
          
             /* navigation menu */
             nav {
                 background: rgb(239, 80, 41);
                margin: 0 auto;
+               margin-bottom: 20px;
+               border-radius: 20px;
                 display: flex;
                 padding: 10px;
             }
@@ -50,58 +53,61 @@
                 padding: 10px;
             }
             .sidebar-img {
-                width: 200px;
+                width: 400px;
             }
             .content {
                 flex: 1;
                 padding: 15px;
             }
             #interests {
-                border: 4px silver ridge;
+                border: 4px rgb(81, 189, 122) double;
                 padding: 8px;
+                border-radius: 4px red;
             }
             h2, h3 {
                 margin: 0px;
+            }
+
+            h2 { 
+                text-decoration: underline;
             }
          </style>
     </head>
     
     <body>
-         
-        <div> 
+        <!-- All Content Goes Here  -->
+        <div id="all-contents">
             <nav>
-                                <h1>John's Glorious Website</h1>
+                <h1>John's Website</h1>
                     <ul>
-                        <li>
-                        <a href="index.html"> Home </a>
+                        <li class="nav-li">
+                            <a href="index.html"> Home </a>
                         </li>
-                        <li>
-                        <a href="portfolio.html"> Portfolio </a>
+                        <li class="nav-li">
+                            <a href="portfolio.html"> Portfolio </a>
                         </li>
                     </ul>
             </nav>
     
             <main>
                 <!-- Sidebar section -->
-                <div>
-                    <img src="https://fishuntamed.com/wp-content/uploads/2018/05/DSC_0901.jpg">
-                    </div>
-                <div>
+                <div class="sidebar">
+                    <img class="sidebar-img" src="https://www.nps.gov/grsm/planyourvisit/images/Fishing_1.jpg">
+                </div>
+                
+                 <!-- Content section -->
+                <div class="content">
                     <h2>John Price </h2>
-                    <p>Student at mandeville highschool </p>
-                    <!-- Interests section -->
-                        <div>
+                    <p>Student at mandeville high school </p>
+                <!-- Interests section -->    
+                <div id="interests">
                             <h3>Interests</h3>
                                 <ul>
                                     <li>hiking</li>
                                     <li>traveling</li>
                                     <li>fishing</li>
                                 </ul>
-                        </div>
-                        </div>
-                     
-                <div>
-                
+                </div>
                 </div>
             </main>
             
