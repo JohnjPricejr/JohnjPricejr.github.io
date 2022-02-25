@@ -8,7 +8,8 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+			background-image: url("https://c.ndtvimg.com/2021-12/d9gktnk8_vladimir-putin-afp-650_625x300_12_December_21.jpg?im=Resize=(1230,900)");
+			background-size: cover;
 			font-size: 300%;
 			text-align: center;
 			display: block;
@@ -18,6 +19,8 @@
 		}
 		.board{
 			height: 100vh;
+			background-image: url("https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/UW3AS226R5BS5GSVRYJIEIZ5Z4.jpg");
+			background-size: cover;
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -29,6 +32,7 @@
 
 	<script>
 		(function(){
+			
 			'use strict'
 			/* global jQuery */
 
@@ -47,8 +51,9 @@
 			box.on('click', handleBoxClick);
 
 			// moves the Box to a new position on the screen along the X-Axis
-			function moveBoxTo(newPositionX) {
-				box.css("left", newPositionX);
+			function moveBoxTo(positionX,positionY) {
+				box.css("left", positionX);
+				box.css("top", positionY);
 			}
 
 			// changes the text displayed on the Box
@@ -61,7 +66,12 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var positionX = 0;
+			var positionY = 0;
+			var points = 0;
+			var speed = 10;
+			var speedY = 10;
+			var boardHeight = jQuery(window).height();
 
 			
 			/* 
@@ -70,19 +80,56 @@
 			turn it around! 
 			*/
 			function update() {
-				
+				changeBoxText(points);
 
+				/* Your Code to Increase positionX by 10 HERE*/
+				moveBoxTo(positionX,positionY);
+				positionX = positionX + speed;
+				positionY = positionY + speedY;
+				
+				if (positionX > boardWidth){
+					speed = -speed;
+				}
+				if (positionX < 0) {
+					speed = -speed;
+				}
+
+				if (positionY > boardHeight){
+					speedY = -speedY;
+				}
+				
+				if (positionY < 0){
+					speedY = -speedY;
+				}
 			};
 
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
-			it should increase the points total, increase the speed, and move the box to
+			it should increase the points total, increase the speed, and move the bosd67x to
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
+				positionY = Math.random() * (boardHeight - 45);
+				positionX = Math.random() * (boardWidth - 45);
 				
+				// your code to increase the points variable by 1
+				
+				changeBoxText(points);
+				points = points + 1
 
+				// Box Speed 
 
+				if (speed > 0) {
+					speed = speed +3;
+				} else if (speed < 0) {
+					speed = speed - 3;
+				}
+
+				if (speedY > 0) {
+					speedY = speedY + 3;
+				} else if (speedY < 0) {
+					speedY = speedY - 3;
+				}
 			};
 		})();
 	</script>
